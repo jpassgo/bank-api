@@ -1,18 +1,20 @@
 package com.jpassgo.bankapi.bankapi.models;
 
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.annotation.Id;
 
 @Data
 public abstract class Account {
-    private int number;
-    private BigDecimal balance;
 
-    @Value("#{ LocalDate.now() }")
-    private LocalDate openDate;
-    private LocalDate closeDate;
-    private boolean isFrozen;
+  @Id private Integer number;
+  private BigDecimal balance;
+
+  @Value("#{ LocalDate.now() }")
+  private LocalDate openDate;
+
+  private LocalDate closeDate;
+  private boolean isFrozen;
 }
