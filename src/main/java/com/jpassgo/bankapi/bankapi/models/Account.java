@@ -2,6 +2,8 @@ package com.jpassgo.bankapi.bankapi.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import com.jpassgo.bankapi.bankapi.enums.AccountType;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
@@ -17,4 +19,6 @@ public abstract class Account {
 
   private LocalDate closeDate;
   private boolean isFrozen;
+
+  public abstract AccountType getAccountType();
 }
