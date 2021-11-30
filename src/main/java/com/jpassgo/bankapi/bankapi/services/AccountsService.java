@@ -1,9 +1,13 @@
 package com.jpassgo.bankapi.bankapi.services;
 
+import com.jpassgo.bankapi.bankapi.enums.AccountType;
 import com.jpassgo.bankapi.bankapi.models.Account;
 import com.jpassgo.bankapi.bankapi.models.CheckingAccount;
 import com.jpassgo.bankapi.bankapi.models.SavingsAccount;
+import com.jpassgo.bankapi.bankapi.models.User;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class AccountsService {
@@ -24,5 +28,15 @@ public class AccountsService {
     accounts.add(account);
     user.setAccounts(accounts);
     return usersService.updateUser(user).getId();
+  }
+
+  public Optional<Account> getAccount(String userId, AccountType accountType) {
+    var user = usersService.getUser(userId);
+    return user.getAccounts()
+            .stream()
+            .filter(account ->
+                    account.getAccountType()
+                            .equals(accountType))
+            .findFirst();
   }
 }
