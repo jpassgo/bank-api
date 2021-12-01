@@ -27,4 +27,17 @@ public class UsersService {
   public User updateUser(User user) {
     return userRepository.save(user);
   }
+
+  public boolean deleteUser(String id) {
+    var maybeUser = userRepository.findById(id);
+    if(maybeUser.isPresent()) {
+      try {
+        userRepository.delete(maybeUser.get());
+        return true;
+      } catch (IllegalArgumentException e) {
+        return false;
+      }
+    }
+
+  }
 }
