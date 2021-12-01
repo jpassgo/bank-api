@@ -3,9 +3,12 @@ package com.jpassgo.bankapi.bankapi.controllers;
 import com.jpassgo.bankapi.bankapi.models.User;
 import com.jpassgo.bankapi.bankapi.services.UsersService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import static org.springframework.http.HttpStatus.NOT_FOUND;
+
+@RestController("/users")
 @RequiredArgsConstructor
 public class UsersController {
 
@@ -27,7 +30,11 @@ public class UsersController {
   }
 
   @DeleteMapping
-  public Integer deleteUser(User user) {
-    return Integer.valueOf("1");
+  public ResponseEntity deleteUser(String id) {
+    if(usersService.deleteUser(id)) {
+      return ResponseEntity.ok().build();
+    } else {
+      return new ResponseEntity(NOT_FOUND);
+    }
   }
 }
