@@ -1,9 +1,8 @@
 package com.jpassgo.bankapi.bankapi.models;
 
+import com.jpassgo.bankapi.bankapi.enums.AccountType;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import com.jpassgo.bankapi.bankapi.enums.AccountType;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;

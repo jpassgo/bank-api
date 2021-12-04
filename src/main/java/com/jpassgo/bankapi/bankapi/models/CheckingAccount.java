@@ -1,12 +1,11 @@
 package com.jpassgo.bankapi.bankapi.models;
 
-import java.math.BigDecimal;
-import java.time.Duration;
+import static com.jpassgo.bankapi.bankapi.enums.AccountType.CHECKING_ACCOUNT;
 
 import com.jpassgo.bankapi.bankapi.enums.AccountType;
+import java.math.BigDecimal;
+import java.time.Duration;
 import lombok.Data;
-
-import static com.jpassgo.bankapi.bankapi.enums.AccountType.CHECKING_ACCOUNT;
 
 @Data
 public class CheckingAccount extends Account {
