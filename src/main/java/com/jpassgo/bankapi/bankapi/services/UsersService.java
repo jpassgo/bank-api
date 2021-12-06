@@ -30,7 +30,7 @@ public class UsersService {
 
   public boolean deleteUser(String id) {
     var maybeUser = userRepository.findById(id);
-    if(maybeUser.isPresent()) {
+    if (maybeUser.isPresent()) {
       try {
         userRepository.delete(maybeUser.get());
         return true;
@@ -38,6 +38,5 @@ public class UsersService {
         return false;
       }
     }
-
   }
 }

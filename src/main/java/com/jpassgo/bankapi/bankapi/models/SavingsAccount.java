@@ -1,10 +1,10 @@
 package com.jpassgo.bankapi.bankapi.models;
 
-import java.math.BigDecimal;
-import com.jpassgo.bankapi.bankapi.enums.AccountType;
-import lombok.Data;
-
 import static com.jpassgo.bankapi.bankapi.enums.AccountType.SAVINGS_ACCOUNT;
+
+import com.jpassgo.bankapi.bankapi.enums.AccountType;
+import java.math.BigDecimal;
+import lombok.Data;
 
 @Data
 public class SavingsAccount extends Account {
